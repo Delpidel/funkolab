@@ -9,6 +9,9 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+// Vuex
+import store from './store'
+
 const vuetify = createVuetify({
     components,
     directives,
@@ -16,13 +19,11 @@ const vuetify = createVuetify({
       defaultSet: 'mdi'
     },
   })
-  
-  createApp(App).use(vuetify).mount('#app')
 
 const app = createApp(App)
-
 
 app
 .use(router)
 .use(vuetify)
+.use(store)
 .mount('#app')
