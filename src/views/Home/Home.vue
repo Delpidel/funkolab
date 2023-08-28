@@ -1,5 +1,6 @@
 <template>
-    <h1>Produtos</h1>
+    <h1>Produtos {{ this.$store.state.produtosCarrinho.length }}</h1>
+    <button @click="this.$store.dispatch('alterarNome', { nome: 'douglas'})">Cliquei</button>
     <div class="list-products">
     <v-card width="300px" class="pa-2 mb-2" v-for="product in products" :key="product.id">
         <v-img 
@@ -15,13 +16,11 @@
         <v-card-subtitle class="pt-4">10x de {{new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.parcela)}} </v-card-subtitle>
 
         <v-card-actions>
-            <v-btn color="orange" @click="() => adicionarAoCarrinho(product)">
+            <v-btn color="orange" @click="() => this.$store.dispatch('adicionarProduto', { product })">
                 Comprar
             </v-btn>
         </v-card-actions>
     </v-card>
-
-    {{ produtosCarrinho.length }} No carrinho
     </div>
 </template>
 
@@ -31,8 +30,7 @@
     export default {
         data(){
             return {
-                products: [],
-                produtosCarrinho: []
+                products: []
             }   
         },
         mounted() {
@@ -53,9 +51,7 @@
                     alert("Desculpe, não foi possível recuperar os produtos")
                 })
             },
-            adicionarAoCarrinho(produto){
-                this.produtosCarrinho.push(produto)
-            }
+            
         }
     }
 </script>
