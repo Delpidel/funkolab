@@ -1,11 +1,12 @@
 <template>
     <h1>Produtos</h1>
     <div class="list-products">
-    <v-card width="30%" class="pa-2 mb-2" v-for="product in products" :key="product.id">
+    <v-card width="300px" class="pa-2 mb-2" v-for="product in products" :key="product.id">
         <v-img 
             :src="product.imagem" 
             class="align-end" 
-            width="100%" 
+            width="300px"
+            hidden="200px" 
             cover
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
         >
@@ -14,11 +15,12 @@
         <v-card-subtitle class="pt-4">10x de {{new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.parcela)}} </v-card-subtitle>
 
         <v-card-actions>
-            <v-btn color="orange" @onclick="() => adicionarAoCarrinho(product)">
+            <v-btn color="orange" @click="() => adicionarAoCarrinho(product)">
                 Comprar
             </v-btn>
         </v-card-actions>
     </v-card>
+
     {{ produtosCarrinho.length }} No carrinho
     </div>
 </template>
