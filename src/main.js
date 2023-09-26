@@ -13,17 +13,13 @@ import * as directives from 'vuetify/directives'
 import store from './store'
 
 const vuetify = createVuetify({
-    components,
-    directives,
-    icons: {
-      defaultSet: 'mdi'
-    },
-  })
+  components,
+  directives,
+  icons: {
+    defaultSet: 'mdi'
+  }
+})
 
 const app = createApp(App)
 
-app
-.use(router)
-.use(vuetify)
-.use(store)
-.mount('#app')
+app.use(router).use(vuetify).use(store).mount('#app')

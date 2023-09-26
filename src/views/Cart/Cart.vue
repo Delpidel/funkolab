@@ -22,7 +22,36 @@
             )
           }}
         </td>
+        <td>
+          <v-btn @click="removeItem(item)">Excluir</v-btn>
+        </td>
       </tr>
     </tbody>
   </v-table>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      cartItems: this.$store.state.produtosCarrinho
+    }
+  },
+  methods: {
+    removeItem(itemToRemove) {
+      const exclusion = this.cartItems.findIndex((item) => item.id === itemToRemove.id)
+      if (exclusion !== -1) {
+        this.cartItems.splice(exclusion, 1)
+      }
+    }
+  }
+}
+</script>
+<style scoped>
+.v-btn {
+  background-color: red;
+  color: white;
+}
+.v-btn:hover {
+  background-color: brown;
+}
+</style>
