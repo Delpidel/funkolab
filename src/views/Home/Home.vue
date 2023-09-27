@@ -3,7 +3,7 @@
   <div class="list-products">
     <v-card
       width="260px"
-      class="pa-2 mb-6 ml-6 mr-6"
+      class="pa-2 mb-6 ml-8 mr-8"
       v-for="product in produtosRestantes"
       :key="product.id"
     >
