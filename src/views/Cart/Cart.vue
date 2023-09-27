@@ -14,7 +14,9 @@
         <td><img :src="item.imagem" width="30" /></td>
         <td>{{ item.nome }}</td>
         <td>{{ item.quantidade }}</td>
-        <td>{{ item.preco }}</td>
+        <td>{{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
+              item.preco
+            ) }}</td>
         <td>
           {{
             new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
